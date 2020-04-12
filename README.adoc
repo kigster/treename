@@ -3,9 +3,9 @@
 
 = TreeName — Recursive File Renaming Ruby Gem with CLI
 
-image:https://github.com/kigster/treename/workflows/Ruby/badge.svg[Ruby]
-
-image:docs/img/coverage.svg[Coverage]
+image:https://github.com/kigster/treename/workflows/Ruby/badge.svg[Ruby, link="https://github.com/kigster/treename/actions?query=workflow%3ARuby", height="30"]
+image:https://travis-ci.org/kigster/treename.svg?branch=master["Build Status", link="https://travis-ci.org/kigster/treename", height="30"]
+image:docs/img/coverage.svg[Coverage, height="30"]
 
 == Using `treename`
 
