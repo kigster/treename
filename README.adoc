@@ -1,0 +1,16 @@
+:doctype: book
+:toc:
+
+= TreeName — Recursive File Renaming Ruby Gem with CLI
+
+image:https://github.com/kigster/treename/workflows/Ruby/badge.svg[Ruby]
+
+image:docs/img/coverage.svg[Coverage]
+
+== Using `treename`
+
+TBD.
+
+== Copyright
+
+© 2020 Konstantin Gredeskoul, MIT License.
