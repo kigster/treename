@@ -38,3 +38,19 @@ Layout/MultilineMethodCallIndentation:
 
 Style/FormatStringToken:
   Enabled: false
+  
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
