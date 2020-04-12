@@ -2,7 +2,7 @@ inherit_from:
   - .relaxed-rubocop-2.4.yml
 
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.4
   UseCache: true
   DefaultFormatter: progress
   DisplayStyleGuide: true
