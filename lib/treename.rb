@@ -3,7 +3,6 @@
 
 # vim: ft=ruby
 
-require 'octokit'
 require 'colored2'
 require 'dry/cli'
 require 'forwardable'

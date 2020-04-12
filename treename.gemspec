@@ -11,10 +11,10 @@ Gem::Specification.new do |spec|
   spec.authors = ['Konstantin Gredeskoul']
   spec.email   = %w(kigster@gmail.com)
 
-  spec.summary = "Extensible CLI helper client for Github, for automating various tasks, such as — generating a list of org's repos and converting it into a pretty markdown, etc"
+  spec.summary = "Recursive customizable file tree processor, able to rename, and optionally process/convert files in a deeply nested folder tree."
   spec.license = 'MIT'
 
-  spec.description = "Generate repository list, show user info and more."
+  spec.description = "Recursive and highly customizable file tree processor, able to rename, and optionally process/convert files in a deeply nested folder tree."
 
   spec.homepage = 'https://github.com/kigster/treename'
 
@@ -26,7 +26,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'colored2', '~> 3'
   spec.add_dependency 'dry-cli', '~> 0.6'
-  spec.add_dependency 'octokit', '~> 4'
   spec.add_dependency 'tty-box', '~> 0.5'
   spec.add_dependency 'tty-cursor'
   spec.add_dependency 'tty-progressbar'
