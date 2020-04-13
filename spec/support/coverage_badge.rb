@@ -25,7 +25,7 @@ class CoverageBadge
   def generate!(percentage = read_from_file)
     output.puts
     output.puts ' • Attempting to generate the Coverage Badge for '.green + sprintf('%.2f%%', percentage).bold.yellow + ' coverage...'.green
-    File.open(badge_image, 'w') { |f| f.write(template('COVERAGE', sprintf('%.2f', percentage))) }
+    File.open(badge_image, 'w') { |f| f.write(template('COVERAGE', percentage.to_f, sprintf('%.2f', percentage))) }
     output.puts ' • Coverage badge SVG was saved into: '.green + badge_image.bold.yellow + '.'.green
     output.puts
   rescue StandardError => e
@@ -39,11 +39,11 @@ class CoverageBadge
     ::JSON.parse(::File.read(COVERAGE_RESULT))['result']['covered_percent'].to_f
   end
 
-  def template(title, percentage)
+  def template(title, percentage_float, percentage)
     color = '#f00'
 
     COVERAGE_COLORS.each_pair do |range, coverage_color|
-      if range.include?(percentage.to_i)
+      if range.include?(percentage_float.round(0))
         color = coverage_color
         break
       end

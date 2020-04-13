@@ -56,8 +56,8 @@ end
 
 if ARGV.empty?
   SimpleCov.at_exit do
-    SimpleCov.result.format!
+    SimpleCov.result.format! unless ENV['CI']
     # Moves generated coverage SVG from the ./coverage folder to ./docs/img folder.
-    RunHelper.update_coverage_badge!
+    RunHelper.generate_coverage_badge! unless ENV['CI']
   end
 end

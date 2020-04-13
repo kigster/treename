@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'colored2'
-
+require_relative 'coverage_badge'
 module RunHelper
   def complete_spec_run?
     total_spec_files_count == current_spec_file_count
@@ -17,6 +17,12 @@ module RunHelper
 
   def needs_new_badge?
     complete_spec_run? && ENV['CI'].nil?
+  end
+
+  def generate_coverage_badge!
+    committed_badge = 'docs/img/coverage.svg'
+    CoverageBadge.new.generate!
+    puts git_add(committed_badge)
   end
 
   def update_coverage_badge!
