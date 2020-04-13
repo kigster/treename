@@ -3,7 +3,6 @@
 require 'spec_helper'
 
 RSpec.describe TreeName::CLI::Commands::LS, type: :aruba do
-
   context 'command ls' do
     include_context 'aruba setup'
     let(:args) { %w(ls --help) }
@@ -13,7 +12,6 @@ RSpec.describe TreeName::CLI::Commands::LS, type: :aruba do
     it { should match /Usage/ }
     it { should match /Command:/ }
     it { should include 'treename ls [FOLDER] [PATTERN]' }
-
   end
 
   context 'listing directory' do

@@ -54,6 +54,7 @@ module TreeName
           self.context = TreeName
           self.verbose = verbose
           self.silent = silent
+          self.trace = trace
           self.args = args
 
           if verbose
@@ -65,6 +66,9 @@ module TreeName
           if respond_to?(:execute_command)
             execute_command(**args)
           end
+        rescue StandardError => e
+          error("Uncaught exception: #{e.inspect}")
+          warn("Stacktrace:\n" + e.backtrace.join("\n")) if trace
         end
 
         protected
@@ -75,11 +79,11 @@ module TreeName
 
         def to_hash
           {
-            folder: folder,
-            pattern: pattern,
-            silent: silent,
+            folder:   folder,
+            pattern:  pattern,
+            silent:   silent,
             verboseΩ: verbose,
-            trace: trace
+            trace:    trace
           }
         end
 

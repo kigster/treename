@@ -17,7 +17,7 @@ module TreeName
 
         class << self
           def example_lines
-            @lines ||= [].tap do |array|
+            [].tap do |array|
               if array.empty?
                 array << "                          ##{' prints the list of all files under the current directory'.blue}"
                 array << "#{'~/Music "*.mp3"           '.green}##{' prints the list of all mp3 files under ~/Music'.blue}"
@@ -26,11 +26,11 @@ module TreeName
           end
         end
 
-        example *example_lines
+        example(*example_lines)
 
-        def execute_command(**opts)
+        def execute_command(**_opts)
           if folder.nil? || !Dir.exist?(folder)
-            stdout.puts("Folder #{folder.nil? ? 'is empty' : "#{folder} does not exist."}")
+            error("Folder #{folder.nil? ? 'is empty' : "#{folder} does not exist."}")
             return
           end
 

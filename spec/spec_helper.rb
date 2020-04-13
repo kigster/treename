@@ -38,7 +38,7 @@ RSpec.configure do |spec|
 
   spec.include Aruba::Api
 
-    spec.before(:each) do
+  spec.before(:each) do
     ::TreeName.in_test = true
   end
 

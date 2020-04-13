@@ -24,13 +24,13 @@ Gem::Specification.new do |spec|
   spec.require_paths         = ['lib']
   spec.required_ruby_version = '>= 2.4'
 
+  spec.add_dependency 'awesome_print'
   spec.add_dependency 'colored2', '~> 3'
   spec.add_dependency 'dry-cli', '~> 0.6'
   spec.add_dependency 'id3tag'
   spec.add_dependency 'tty-box', '~> 0.5'
   spec.add_dependency 'tty-cursor'
   spec.add_dependency 'tty-progressbar'
-  spec.add_dependency 'awesome_print'
 
   spec.add_development_dependency 'aruba', '= 1.0.0'
   spec.add_development_dependency 'awesome_print', '~> 1'

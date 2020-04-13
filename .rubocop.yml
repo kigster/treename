@@ -54,3 +54,7 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: true
 
+Metrics/BlockLength:
+  Exclude: 
+    - "spec/**/*.rb"
+    - "*.gemspec"

@@ -31,7 +31,7 @@ module UI
     end
 
     def hr(stream: $stdout)
-      stream.puts "#{'—' * (ui_width - 2) }".blue
+      stream.puts('—' * (ui_width - 2)).to_s.blue
     end
 
     def error(*args, stream: $stdout )
@@ -60,15 +60,15 @@ module UI
 
     def default_box_options(title: nil, color: :bright_yellow)
       {
-        width: ui_width,
-        align: :left,
-        border: :light,
+        width:   ui_width,
+        align:   :left,
+        border:  :light,
         padding: [0, 1, 0, 1],
-        style: {
-          fg: color,
+        style:   {
+          fg:     color,
           border: { fg: color }
         },
-        title: { top_center: title.nil? ? Time.new.to_s : title },
+        title:   { top_center: title.nil? ? Time.new.to_s : title },
       }
     end
   end
