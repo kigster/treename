@@ -9,7 +9,71 @@ image:docs/img/coverage.svg[Coverage, height="30"]
 
 == Using `treename`
 
-TBD.
+[source, bash]
+----
+$ treename --help
+
+TreeName CLI 0.1.2
+© 2020 Konstantin Gredeskoul, All rights reserved. MIT License.
+
+Commands:
+  treename ls [FOLDER] [PATTERN]                 # Print matching file info
+  treename version                               # Print version
+----
+
+== Commands
+
+=== `ls`
+
+**Arguments:**
+
+ * `folder` - a root directory of the multi-level tree.
+ * `pattern` — a https://www.thoughtco.com/using-glob-with-directories-2907832[file glob] pattern, for instance `****/*.mp3`
+
+This command simply prints all files matching the patter under the folder.
+
+IMPORTANT: The file paths are printed relative to the `folder` argument.
+
+**Example:**
+
+[source, bash]
+----
+❯ treename ls ~/Music **/*.mp3
+Music/Media.localized/LeftCtrl/Left Turn Right Turn EP/Nevada Lazy Sunday Beat Cakes.mp3
+Music/Media.localized/LeftCtrl/2017 NYE @ F&J/LeftCtrl @ NYE 2017.mp3
+Logic Bounces/Final Cut Original Media/2017-01-05/LeftCtrl @ NYE 2017.mp3
+----
+
+This means that, for instance, I have a `Music` folder under my `~/Music` folder :)
+
+=== `copy-rename` aka `cpr`
+
+IMPORTANT: not yet implemented.
+
+This command will create a mirror folder tree with the files renamed. It does not change the original files.
+
+**Examples:**
+
+[source, bash]
+----
+treename cpr ~/Music **/*.mp3 --dest=~/NewMusic --strategy-file=rename.yml
+----
+
+Strategy file looks like this:
+
+[source, yaml]
+----
+cpr:
+  files:
+    actions:
+    - replace: [ ' ', '-' ]
+    - replace: [ '---', '-' ]
+    - extract:
+        token: bpm
+        regex: (\d+)bpm
+        match: $1
+    - rename: '{{ bpm }}.{{ basename }}.mp3'
+----
 
 == Copyright
 
