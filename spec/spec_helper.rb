@@ -21,7 +21,6 @@ if ARGV.empty?
     add_filter 'spec/'
   end
 end
-
 require 'simplecov'
 
 SimpleCov.start
@@ -39,7 +38,7 @@ RSpec.configure do |spec|
 
   spec.include Aruba::Api
 
-  spec.before(:each) do
+    spec.before(:each) do
     ::TreeName.in_test = true
   end
 
@@ -49,8 +48,8 @@ RSpec.configure do |spec|
 end
 
 Aruba.configure do |config|
-  config.command_launcher = :in_process
-  config.main_class       = ::TreeName::CLI::Launcher
+  config.command_launcher = :in_process # :spawn is for forking each integration test. Slow!
+  config.main_class = ::TreeName::CLI::Launcher
 end
 
 ::Dir.glob(::File.expand_path('../support/**/*.rb', __FILE__)).each { |f| require(f) }

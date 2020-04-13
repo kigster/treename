@@ -35,7 +35,9 @@ module TreeName
           TreeName.configure_kernel_behavior!
         end
 
+        $PROGRAM_NAME = ::TreeName::BINARY
         ::Dry::CLI.new(Commands).call(arguments: argv, out: stdout, err: stderr)
+        exit 0
       rescue StandardError => e
         box = TTY::Box.frame('ERROR:', ' ',
                              e.message,
@@ -51,9 +53,9 @@ module TreeName
                                }
                              })
         stderr.print box
+        exit(10) unless TreeName.in_test
       ensure
         TreeName.restore_kernel_behavior!
-        exit(10) unless TreeName.in_test
       end
     end
   end

@@ -10,8 +10,9 @@ require 'forwardable'
 require_relative 'treename/version'
 
 module TreeName
-  BANNER  = "TreeName Version #{VERSION}"
-  BINARY  = File.expand_path('../exe/treename', __dir__).freeze
+  BANNER = "TreeName Version #{VERSION}"
+  GEM_ROOT = File.expand_path('../', __dir__).freeze
+  BINARY = "#{GEM_ROOT}/exe/treename"
 
   module CLI
     module Commands
